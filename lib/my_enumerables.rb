@@ -57,6 +57,13 @@ module Enumerable
 
     count
   end
+
+  # Returns an array with the results of the block
+  def my_map
+    output = []
+    self.my_each { |item| output << yield(item) }
+    output
+  end
 end
 
 class Array
