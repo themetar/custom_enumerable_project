@@ -30,6 +30,15 @@ module Enumerable
     end
     true  # all passed if the program got here 
   end
+
+  # Checks whether any element matches the condition
+  def my_any?
+    self.my_each do |item|
+      check = block_given? ? yield(item) : item
+      return true if check
+    end
+    false # none passed the test if the program got here 
+  end
 end
 
 class Array
