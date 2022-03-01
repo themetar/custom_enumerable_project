@@ -39,6 +39,12 @@ module Enumerable
     end
     false # none passed the test if the program got here 
   end
+
+  # Checks if no elements pass the condition
+  def my_none?(&block)
+    # flip #my_any?
+    !self.my_any?(&block)
+  end
 end
 
 class Array
