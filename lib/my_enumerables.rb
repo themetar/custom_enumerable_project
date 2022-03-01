@@ -1,5 +1,15 @@
 module Enumerable
-  # Your code goes here
+  # Yields to block for every element, passing both the element and an index
+  def my_each_with_index
+    if block_given?
+      i = 0
+      self.my_each do |item|
+        yield item, i
+        i += 1
+      end
+    end
+    self  # return self
+  end
 end
 
 class Array
