@@ -21,6 +21,15 @@ module Enumerable
       return result
     end
   end
+
+  # Checks if all elements match the condition
+  def my_all?
+    self.my_each do |item|
+      check = block_given? ? yield(item) : item # use the element itself if no block is given
+      return false unless check
+    end
+    true  # all passed if the program got here 
+  end
 end
 
 class Array
