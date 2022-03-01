@@ -45,6 +45,18 @@ module Enumerable
     # flip #my_any?
     !self.my_any?(&block)
   end
+
+  # Counts the elements that pass the condition
+  def my_count
+    return self.size unless block_given?
+
+    count = 0
+    self.my_each do |item|
+      count += 1 if yield item
+    end
+
+    count
+  end
 end
 
 class Array
