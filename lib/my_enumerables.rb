@@ -64,6 +64,15 @@ module Enumerable
     self.my_each { |item| output << yield(item) }
     output
   end
+
+  # Reduces an Enumerable to a single value
+  def my_inject(initial)
+    accumulator = initial
+    self.my_each do |item|
+      accumulator = yield accumulator, item
+    end
+    accumulator
+  end
 end
 
 class Array
