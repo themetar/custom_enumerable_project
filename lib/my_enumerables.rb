@@ -10,6 +10,17 @@ module Enumerable
     end
     self  # return self
   end
+
+  # Selects elements for which the block returns truthy value
+  def my_select
+    if block_given?
+      result = []
+      self.my_each do |item|
+        result << item if yield item
+      end
+      return result
+    end
+  end
 end
 
 class Array
